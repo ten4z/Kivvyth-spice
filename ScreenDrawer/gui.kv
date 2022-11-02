@@ -1,0 +1,151 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+	focus_color: "#5ee799"
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	ripple_color: "#c5bdd2"
+	selected_color: "#0c6c4d"
+<DrawerLabelItem@MDNavigationDrawerItem>
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	focus_behavior: False
+	selected_color: "#4a4939"
+	_no_ripple_effect: True
+<Sc_Manager>:
+	Sc_Info:
+		id: sc_info
+		name: "sc_info"
+	Sc_Profile:
+		id: sc_profile
+		name: "sc_profile"
+	Sc_About:
+		id: sc_about
+		name: "sc_about"
+<ContentManager>:
+	screen_manager: screen_manager
+	nav_drawer: nav_drawer
+	MDTopAppBar:
+		id: toolbar
+		pos_hint: {"top": 1}
+		elevation: 10
+		title: "By Ten4z"
+		left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+	MDNavigationLayout:
+		x: toolbar.height
+		Sc_Manager:
+			id: screen_manager
+			current: "sc_info"
+			MDScreen:
+				MDTopAppBar:
+					title: "Empregatício"
+					elevation: 4
+					pos_hint: {"top": 1}
+					md_bg_color: "#5ee799"
+					specific_text_color: app.theme_cls.primary_color
+					left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+				Sc_Info
+				Sc_Profile
+				Sc_About
+		MDNavigationDrawer:
+			id: nav_drawer
+			radius: (0, 16, 16, 0)
+			MDNavigationDrawerMenu:
+				MDNavigationDrawerHeader:
+					title: "by Ten4z"
+					title_color: app.theme_cls.primary_color
+					text: "http://josielsoares.com"
+					spacing: "4dp"
+					padding: "12dp", 0, 0, "26dp"
+				MDNavigationDrawerDivider:
+				MDNavigationDrawerLabel:
+					text: "Content"
+				DrawerClickableItem:
+					icon: "account-details"
+					text: "Profile"
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_profile"
+						nav_drawer.set_state("close")
+				DrawerClickableItem:
+					icon: "information"
+					right_text: "+99"
+					text_right_color: "#4a4939"
+					text: "Info"
+					on_release:
+						app.root.ids.screen_manager.current = "sc_info"
+						nav_drawer.set_state("close")
+				DrawerClickableItem:
+					text: "About"
+					icon: "more"
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_about"
+						nav_drawer.set_state("close")
+				MDNavigationDrawerDivider:
+				MDNavigationDrawerLabel:
+					text: "Painel"
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+<Sc_Info>:
+	on_enter:
+		app.root.ids.toolbar.title = "Info Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5
+			MDRaisedButton:
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				pos_hint_y: 0.5
+				text: "profile screen"
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_profile"
+			MDRaisedButton:
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "about screen"
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_about" 
+<Sc_Profile>:
+	on_enter:
+		app.root.ids.toolbar.title = "Profile Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5
+			MDRaisedButton:
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "info screen"
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_info"
+					
+			MDRaisedButton:
+				text: "about screen"
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_about"
+<Sc_About>:
+	on_enter:
+		app.root.ids.toolbar.title = "About Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5
+			MDRaisedButton:
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "info screen"
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_info"
+			MDRaisedButton:
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "profile screen"
+				on_release: 
+					app.root.ids.screen_manager.current = "sc_profile"
