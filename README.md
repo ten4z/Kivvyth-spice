@@ -5,4 +5,4 @@ Para os brasileiros e portugueses este termo que montei se lê assim: Kíviti Sp
 Montei este termo que significa algo do tipo Kivy com Tempero ou Kivy Temperado.
 
 prj_001a:
-ScreenDrawer: To Use NavigationDrawer menu sidebar with ScreenManager together link --> <a href="https://github.com/ten4z/Kivvyth-Spice/tree/main/ScreenDrawer">HERE</a> <--
+<a href="https://github.com/ten4z/Kivvyth-Spice/tree/main/ScreenDrawer">ScreenDrawer</a>: To Use NavigationDrawer menu sidebar with ScreenManager together
