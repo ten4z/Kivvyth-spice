@@ -18,11 +18,11 @@ class Sc_About(MDScreen):
     pass
 class ContentManager(MDScreen):
     pass
-class ScDrawer(MDApp):
+class ScreenDrawer(MDApp):
     dialog = None
     def build(self):
         self.theme_cls.primary_palette = "Blue"
         self.theme_cls.theme_style = "Light" 
         self.cm = ContentManager()
         return self.cm
-ScDrawer().run()
+ScreenDrawer().run()
