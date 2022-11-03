@@ -6,3 +6,4 @@ Montei este termo que significa algo do tipo Kivy com Tempero ou Kivy Temperado.
 
 prj_001a: <a href="https://github.com/ten4z/Kivvyth-Spice/tree/main/ScreenDrawer">ScreenDrawer</a>: To Use NavigationDrawer sidebar menu with ScreenManager together<br>
 prj_002a: <a href="https://github.com/ten4z/Kivvyth-Spice/tree/main/CustomTheme">CustomTheme</a>: With data persistant to apply custom themes<br>
+prj_003a: <a href="https://github.com/ten4z/Kivvyth-Spice/tree/main/CustomCard">CustomCard</a>: Design of a clickable MDCard to preview a image into Popup<br>
