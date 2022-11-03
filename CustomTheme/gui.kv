@@ -1,0 +1,277 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+	focus_color: "#5ee799"
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	ripple_color: "#c5bdd2"
+	selected_color: "#0c6c4d"
+<DrawerLabelItem@MDNavigationDrawerItem>
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	focus_behavior: False
+	selected_color: "#4a4939"
+	_no_ripple_effect: True	
+<Sc_Manager>:
+	Sc_Theme:
+		id: sc_themes
+		name: "sc_themes"
+	Sc_Info:
+		id: sc_info
+		name: "sc_info"
+	Sc_About:
+		id: sc_about
+		name: "sc_about"		
+<ContentManager>:
+	screen_manager: screen_manager
+	nav_drawer: nav_drawer
+	MDTopAppBar:
+		id: toolbar
+		pos_hint: {"top": 1}
+		elevation: 10
+		title: "By Ten4z"
+		left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+	MDBottomAppBar:
+		MDTopAppBar:
+			id: bottombar
+			title: "AppCustomTheme"
+			icon: "git"
+			type: "bottom"
+			mode: "end"
+			on_action_button: app.open_link()
+			left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+	MDNavigationLayout:
+		x: toolbar.height
+		Sc_Manager:
+			id: screen_manager	
+			Sc_Theme								
+		MDNavigationDrawer:
+			id: nav_drawer
+			radius: (0, 16, 16, 0)
+			MDNavigationDrawerMenu:
+				MDNavigationDrawerHeader:
+					title: "by Ten4z"
+					title_color: app.theme_cls.primary_color
+					text: "http://josielsoares.com"
+					spacing: "4dp"
+					padding: "12dp", 0, 0, "26dp"
+				MDNavigationDrawerDivider:
+				MDNavigationDrawerLabel:
+					text: "Application"
+					
+				DrawerClickableItem:
+					icon: "more"
+					text: "About"
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_about"
+						nav_drawer.set_state("close")
+				DrawerClickableItem:
+					icon: "information"
+					text: "Info"													
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_info"
+						nav_drawer.set_state("close")
+				MDNavigationDrawerLabel:
+					text: "Customize"	
+		
+				DrawerClickableItem:
+					icon: "theme-light-dark"
+					text: "Change Luminosity"
+					on_release: 
+						app.root.ids.screen_manager.get_screen("sc_themes").ChangeLuminosity()		
+				DrawerClickableItem:
+					text: "Theme"
+					icon: "palette"
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_themes"
+						nav_drawer.set_state("close")				
+				MDNavigationDrawerDivider:
+				MDNavigationDrawerLabel:
+					text: "Painel"
+
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+<Sc_Theme>:
+	on_enter:
+		app.root.ids.toolbar.title = "Theme Screen"
+	MDBoxLayout
+		orientation: "vertical"
+		padding: ["0dp","65dp","0dp","90dp"]
+		ScrollView:
+			GridLayout:
+				cols: 2
+				row_default_height: '50dp'
+				row_force_default: True
+				spacing: "5dp"
+				padding: 10
+				# add these two lines
+				size_hint_y: None
+				height: self.minimum_height
+			
+				MDFillRoundFlatButton:
+					id: btn_red
+					text: 'Red'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color:'#f44336'
+					on_press: 
+						root.set_theme('Red', '#f44336')
+						
+				MDFillRoundFlatButton:
+					id: btn_pink
+					text: 'Pink'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#e91e63'
+					on_press: root.set_theme('Pink', '#e91e63')
+				MDFillRoundFlatButton:
+					id: btn_purple
+					text: 'Purple'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#9c27b0'
+					on_press: root.set_theme('Purple', '#9c27b0')					
+				MDFillRoundFlatButton:
+					id: btn_dpurple
+					text: 'Dark Purple'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#673ab7'
+					on_press: root.set_theme('DeepPurple', '#673ab7')
+				MDFillRoundFlatButton:
+					id: btn_indigo 
+					text: 'Indigo'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#3f51b5'
+					on_press: root.set_theme('Indigo', '#3f51b5')
+				MDFillRoundFlatButton:
+					id: btn_blue 
+					text: 'Blue'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#2196f3'
+					on_press: root.set_theme('Blue', '#2196f3')
+				MDFillRoundFlatButton:
+					id: btn_lblue
+					text: 'Light Blue'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#03a9f4'
+					on_press: root.set_theme('LightBlue', '#03a9f4')
+				MDFillRoundFlatButton:
+					id: btn_cyan 
+					text: 'Cyan'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#00bcd4'
+					on_press: root.set_theme('Cyan', '#00bcd4')
+				MDFillRoundFlatButton:
+					id: btn_teal
+					text: 'Teal'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#009688'
+					on_press: root.set_theme('Teal', '#009688')
+				MDFillRoundFlatButton:
+					id: btn_green
+					text: 'Green'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#4caf50'
+					on_press: root.set_theme('Green', '#4caf50')
+				MDFillRoundFlatButton:
+					id: btn_lgreen
+					text: 'Light Green'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#8bc34a'
+					on_press: root.set_theme('LightGreen', '#8bc34a')
+				MDFillRoundFlatButton:
+					id: btn_lime
+					text: 'Lime'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#cddc39'
+					on_press: root.set_theme('Lime', '#cddc39')
+				MDFillRoundFlatButton:
+					id: btn_yellow
+					text: 'Yellow'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#ffeb3b'
+					on_press: root.set_theme('Yellow', '#ffeb3b')
+				MDFillRoundFlatButton:
+					id: btn_amber
+					text: 'Amber'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#ffc107'
+					on_press: root.set_theme('Amber', '#ffc107')
+				MDFillRoundFlatButton:
+					id: btn_orange
+					text: 'Orange'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#ff9800'
+					on_press: root.set_theme('Orange', '#ff9800')
+				MDFillRoundFlatButton:
+					id: btn_dorange
+					text: 'Dark Orange'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#ff5722'
+					on_press: root.set_theme('DeepOrange', '#ff5722')
+				MDFillRoundFlatButton:
+					id: btn_brown
+					text: 'Brown'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#795548'
+					on_press: root.set_theme('Brown', '#795548')
+				MDFillRoundFlatButton:
+					id: btn_gray
+					text: 'Gray'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#9e9e9e'
+					on_press: root.set_theme('Gray', '#9e9e9e')
+				MDFillRoundFlatButton:
+					id: btn_bgray
+					text: 'Blue Gray'
+					text_color: (0.01,0.01,0.01,1)
+					size_hint: (0.3, 0.3)
+					md_bg_color: '#607d8b' 
+					on_press: root.set_theme('BlueGray','#607d8b') 		
+<Sc_About>:
+	on_enter:
+		app.root.ids.toolbar.title = "About Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5			
+			MDLabel:
+				theme_text_color: "Custom"
+    			text_color: "#0ffff0"
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "about screen"
+<Sc_Info>:
+	on_enter:
+		app.root.ids.toolbar.title = "Information Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5			
+			MDLabel:
+				theme_text_color: "Custom"
+				text_color: "#0ffff0"
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "info screen"				
