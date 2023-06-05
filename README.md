@@ -8,4 +8,4 @@ prj_001a: <a href="https://github.com/ten4z/kivy-spice/tree/main/ScreenDrawer">S
 prj_002a: <a href="https://github.com/ten4z/kivy-spice/tree/main/CustomTheme">CustomTheme</a>: With data persistant to apply custom themes<br>
 prj_003a: <a href="https://github.com/ten4z/kivy-spice/tree/main/CustomCard">CustomCard</a>: Design of a clickable MDCard to preview a image into Popup<br>
 prj_004a: <a href="https://github.com/ten4z/kivy-spice/tree/main/KivyLifecycle">Kivy Lifecycle</a>: Restart and Close the Kivy Application.<br>
-prj_005a: <a href="https://github.com/ten4z/kivy-spice/tree/main/ContactScreen">Kivy Contact Info</a>: Call me to develop business projects and applications like Apps, Games, Websites and Videos
+prj_005a: <a href="https://github.com/ten4z/kivy-spice/tree/main/ContactScreen">Kivy Contact Info</a>: Call me to develop business projects and applications like Apps, Websites, Games and Videos
