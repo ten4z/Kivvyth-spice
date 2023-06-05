@@ -1,0 +1,211 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+	focus_color: "#5ee799"
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	ripple_color: "#c5bdd2"
+	selected_color: "#0c6c4d"
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+	text_color: "#4a4939"
+	icon_color: "#4a4939"
+	focus_behavior: False
+	selected_color: "#4a4939"
+	_no_ripple_effect: True	
+		
+<ContentManager>:
+	screen_manager: screen_manager
+	nav_drawer: nav_drawer
+
+	MDTopAppBar:
+		id: toolbar
+		pos_hint: {"top": 1}
+		elevation: 10
+		title: "By Ten4z"
+		left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+	MDBottomAppBar:
+		MDTopAppBar:
+			id: bottombar
+			title: "Contact Info"
+			icon: "git"
+			type: "bottom"
+			mode: "end"
+			on_action_button: app.open_link("https://github.com/ten4z/")
+			left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+	MDNavigationLayout:
+		x: toolbar.height
+		Sc_Manager:
+			id: screen_manager	
+			Sc_Menu:
+				id: sc_menu
+				name: "sc_menu"					
+			Sc_Info:
+				id: sc_info
+				name: "sc_info"
+			Sc_About:
+				id: sc_about
+				name: "sc_about"
+
+		MDNavigationDrawer:
+			id: nav_drawer
+			radius: (0, 16, 16, 0)
+			MDNavigationDrawerMenu:
+				MDNavigationDrawerHeader:
+					title: "by Ten4z"
+					title_color: app.theme_cls.primary_color
+					text: "http://josielsoares.com"
+					spacing: "4dp"
+					padding: "12dp", 0, 0, "26dp"
+				
+				MDNavigationDrawerDivider:
+
+				MDNavigationDrawerLabel:
+					text: "Application"
+					
+				DrawerClickableItem:
+					icon: "account"
+					text: "Developer Info"
+					on_release: 
+						app.root.ids.screen_manager.current = "sc_menu"
+						nav_drawer.set_state("close")				
+				
+				
+				MDNavigationDrawerDivider:
+
+				MDNavigationDrawerLabel:
+					text: "Painel"
+
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+				DrawerLabelItem:
+					icon: "information-outline"
+					text: "Label"
+
+<Sc_Menu>:
+	on_enter:
+		app.root.ids.toolbar.title = "Contact Screen"
+	
+	MDBoxLayout:
+		orientation: "vertical"
+		padding:  [0, "64dp", 0, "64dp"] 
+		MDScrollView:
+			do_scroll_y: True
+			MDBoxLayout:
+				orientation: "vertical"
+				size_hint_y: 1.2
+				margin: "5dp"
+				padding: "5dp"
+				spacing: "5dp"
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDLabel:
+						text: "Ziga Sistemas"
+						theme_text_color: "Custom"
+		    			text_color: "#FF6300"
+		    			font_size: "36sp"
+		    			bold: True
+						halign: "left"
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.4
+					CircularRippleButton:
+				        source: "data/round-img-josiel.png"
+				        size_hint: None, None
+				        size: "160dp", "160dp"
+				        pos_hint: {"center_x": .5, "center_y": .5}
+				        on_release: app.open_link("https://www.linkedin.com/in/josiel-sj/")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDLabel:
+						text: "Develop by Josiel Soares"
+						theme_text_color: "Custom"
+		    			text_color: 1, 0, 0, 1
+		    			bold: True
+						halign: "left"
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDFillRoundFlatIconButton:
+						text: "My personal Home Page"
+						icon: "web"
+						on_release: 
+							app.open_link("https://josielsoares.com")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDFillRoundFlatIconButton:
+						text: "My Linkedin Page"
+						icon: "linkedin"
+						on_release: 
+							app.open_link("https://www.linkedin.com/in/josiel-sj/")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDFillRoundFlatIconButton:
+						text: "My Youtube Channel"
+						icon: "youtube"
+						on_release: 
+							app.open_link("https://www.youtube.com/@zigamultimedia")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDFillRoundFlatIconButton:
+						text: "My code on GitHub"
+						icon: "github"
+						on_release: 
+							app.open_link("https://github.com/ten4z")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDFillRoundFlatIconButton:
+						text: "My Apps on PlayStore"
+						icon: "android"
+						on_release: 
+							app.open_link("https://play.google.com/store/apps/dev?id=7550300307515144592")
+				MDBoxLayout:
+					orientation: "vertical"
+					size_hint_y: 0.1
+					MDLabel:
+						text: "zigasistemas@gmail.com"
+						theme_text_color: "Custom"
+						text_color: '#00659B'
+						id: txt_email							    		
+		    			bold: True
+						halign: "left"
+
+		
+<Sc_About>:
+	on_enter:
+		app.root.ids.toolbar.title = "About Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5			
+			MDLabel:
+				theme_text_color: "Custom"
+    			text_color: "#0ffff0"
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "about screen"
+
+<Sc_Info>:
+	on_enter:
+		app.root.ids.toolbar.title = "Information Screen"
+	AnchorLayout:
+		anchor_x: "center"
+		anchor_y: "center" 
+		MDBoxLayout
+			orientation: "horizontal"
+			padding: 5
+			spacing: 5			
+			MDLabel:
+				theme_text_color: "Custom"
+				text_color: "#0ffff0"
+				pos_hint: {'center_x': .5, 'center_y': .5}
+				text: "info screen"				
