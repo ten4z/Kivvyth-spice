@@ -37,15 +37,10 @@
 		x: toolbar.height
 		Sc_Manager:
 			id: screen_manager	
-			Sc_Menu:
-				id: sc_menu
-				name: "sc_menu"					
-			Sc_Info:
-				id: sc_info
-				name: "sc_info"
-			Sc_About:
-				id: sc_about
-				name: "sc_about"
+			Sc_Contact:
+				id: sc_contact
+				name: "sc_contact"					
+		
 
 		MDNavigationDrawer:
 			id: nav_drawer
@@ -67,7 +62,7 @@
 					icon: "account"
 					text: "Developer Info"
 					on_release: 
-						app.root.ids.screen_manager.current = "sc_menu"
+						app.root.ids.screen_manager.current = "sc_contact"
 						nav_drawer.set_state("close")				
 				
 				
@@ -83,7 +78,7 @@
 					icon: "information-outline"
 					text: "Label"
 
-<Sc_Menu>:
+<Sc_Contact>:
 	on_enter:
 		app.root.ids.toolbar.title = "Contact Screen"
 	
@@ -177,35 +172,3 @@
 		    			bold: True
 						halign: "left"
 
-		
-<Sc_About>:
-	on_enter:
-		app.root.ids.toolbar.title = "About Screen"
-	AnchorLayout:
-		anchor_x: "center"
-		anchor_y: "center" 
-		MDBoxLayout
-			orientation: "horizontal"
-			padding: 5
-			spacing: 5			
-			MDLabel:
-				theme_text_color: "Custom"
-    			text_color: "#0ffff0"
-				pos_hint: {'center_x': .5, 'center_y': .5}
-				text: "about screen"
-
-<Sc_Info>:
-	on_enter:
-		app.root.ids.toolbar.title = "Information Screen"
-	AnchorLayout:
-		anchor_x: "center"
-		anchor_y: "center" 
-		MDBoxLayout
-			orientation: "horizontal"
-			padding: 5
-			spacing: 5			
-			MDLabel:
-				theme_text_color: "Custom"
-				text_color: "#0ffff0"
-				pos_hint: {'center_x': .5, 'center_y': .5}
-				text: "info screen"				
